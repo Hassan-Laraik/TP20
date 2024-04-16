@@ -1,0 +1,39 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 355
+  HorizontalOffset = 320
+  VerticalOffset = 174
+  Width = 525
+  object ZNX: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = 'localhost'
+    Port = 0
+    Database = 'tsge'
+    User = 'root'
+    Password = '12345678'
+    Protocol = 'mysql-5'
+    Left = 288
+    Top = 24
+  end
+  object ZqryStagiaires: TZQuery
+    Connection = ZNX
+    Active = True
+    SQL.Strings = (
+      'select  * from stagiaires'
+    )
+    Params = <>
+    Left = 288
+    Top = 96
+  end
+  object DSStagiaires: TDataSource
+    DataSet = ZqryStagiaires
+    Left = 296
+    Top = 184
+  end
+end
